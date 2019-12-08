@@ -1,0 +1,49 @@
+<div>
+    <mat-card class="example-card">
+        <mat-card-title>Scheduled List</mat-card-title>
+
+        <div>
+            <mat-table [dataSource]="dataSource">
+                <!-- Candidate Column -->
+                <ng-container matColumnDef="candidateId">
+                    <mat-header-cell *matHeaderCellDef> Candidate ID. </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.candidateId}} </mat-cell>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                </ng-container>
+
+                <!-- Domain Column -->
+                <ng-container matColumnDef="domain">
+                    <mat-header-cell *matHeaderCellDef> Domain </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.domain}} </mat-cell>
+                </ng-container>
+
+                <!-- Years of Experience Column -->
+                <ng-container matColumnDef="yearOfExperience">
+                    <mat-header-cell *matHeaderCellDef> Years of Experience </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.yearOfExperience}} </mat-cell>
+                </ng-container>
+
+                <!-- Interview Type Column -->
+                <ng-container matColumnDef="recruiterName">
+                    <mat-header-cell *matHeaderCellDef> Interview Type </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.recruiterName}} </mat-cell>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="interviewType">
+                    <mat-header-cell *matHeaderCellDef> Interview Type </mat-header-cell>
+                    <mat-cell *matCellDef="let element"> {{element.interviewType}} </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </mat-card>
+</div>

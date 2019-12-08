@@ -1,0 +1,43 @@
+<div class="row">
+    <mat-sidenav-container>
+        <mat-sidenav #snav [mode]="'side'">
+            <mat-nav-list>
+                <a mat-list-item routerLink=".">Dashboard</a>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <div class="recruiter-header bg-white">
+                <i class="material-icons" (click)="snav.toggle()">menu</i>
+                Recruiter Dashboard
+            </div>
+            <div class="recruiter-content">
+                <div>
+                    <div class="candidates row">
+                        <div class="candidates-list col-6 col-md-3">
+                            <mat-card class="example-card">
+                                <img src="../assets/images/total-candidate.png">
+                                <mat-card-title>Total Candidates</mat-card-title>
+                                <mat-card-content>
+                                    <p class="candidate-count">{{recruiterData.length}}</p>
+                                    <p>Candidates</p>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        <div class="candidates-list col-6 col-md-3" *ngFor="let candidate of groupByDomain">
+                            <mat-card class="example-card">
+                                <img src="../assets/images/candidate.png">
+                                <mat-card-title>{{candidate.key}}</mat-card-title>
+                                <mat-card-content>
+                                    <p class="candidate-count">{{candidate.value.length}}</p>
+                                    <p>Candidates</p>
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </div>
+                </div>
+                <app-candidate-list [recruiterList]="recruiterData"></app-candidate-list>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
